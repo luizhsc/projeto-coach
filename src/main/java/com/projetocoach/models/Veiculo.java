@@ -1,8 +1,22 @@
 package com.projetocoach.models;
 
-public class Veiculo {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="veiculo")
+public class Veiculo implements Serializable {
+
+    public static final Long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     private String marca;
     private String modelo;
     private String cor;
