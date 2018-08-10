@@ -8,7 +8,15 @@
 </head>
 <body>
 
-<h3>Spring Boot</h3>
+<h3>Lista de Veiculos</h3>
+<h3><a href="/cadastrar">Cadastrar</a></h3>
+
+<div th:each="veiculo : ${veiculos}">
+  <div class="row">
+    <p>Marca = <span th:text="${veiculo.marca}"></span></p>
+    <p>Modelo = <span th:text="${veiculo.modelo}"></span></p>
+  </div>
+</div>
 
 </body>
 </html>

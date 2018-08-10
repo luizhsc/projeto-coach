@@ -23,7 +23,15 @@ public class Veiculo implements Serializable {
     private String ano;
     private String preco;
     private String descricao;
-    private Boolean tipo;
+    private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
     public int getId() {
         return id;
@@ -81,11 +89,5 @@ public class Veiculo implements Serializable {
         this.descricao = descricao;
     }
 
-    public Boolean getTipo() {
-        return tipo;
-    }
 
-    public void setTipo(Boolean tipo) {
-        this.tipo = tipo;
-    }
 }
