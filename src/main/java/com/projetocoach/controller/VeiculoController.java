@@ -3,6 +3,7 @@ package com.projetocoach.controller;
 import com.projetocoach.models.Veiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.projetocoach.repository.VeiculoRepository;
@@ -42,5 +43,13 @@ public class VeiculoController {
 
         veiculoRepository.delete(veiculo);
         return "redirect:/";
+    }
+
+    @RequestMapping("/{id}")
+    public ModelAndView detalheVeiculo(@PathVariable("id") int id){
+        Veiculo veiculo = veiculoRepository.findById(id);
+        ModelAndView modelAndView = new ModelAndView("veiculo/detalheVeiculo");
+        modelAndView.addObject("veiculo", veiculo);
+        return modelAndView;
     }
 }

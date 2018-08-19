@@ -6,27 +6,29 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Veiculo</title>
 </head>
 <body>
 
 <h3>Lista de Veiculos</h3>
 <h3><a href="/cadastrar" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Cadastrar Veiculo</a></h3>
 
-<table>
+<table class="container">
   <thead>
   <tr>
     <th>Marca</th>
     <th>Modelo</th>
+    <th>Ano</th>
+    <th>Cor</th>
   </tr>
   </thead>
   <tbody>
   <tr th:each="veiculo : ${veiculos}">
-    <td>Marca = <span th:text="${veiculo.marca}"></span></td>
-    <td>Modelo = <span th:text="${veiculo.modelo}"></span></td>
+    <td><a th:href="${(#mvc.url('VC#detalheVeiculo').arg(0, veiculo.id)).build()}"><span th:text="${veiculo.marca}"></span></td>
+    <td><span th:text="${veiculo.modelo}"></span></td>
+    <td><span th:text="${veiculo.ano}"></span></td>
+    <td><span th:text="${veiculo.cor}"></span></td>
   </tr>
   </tbody>
 

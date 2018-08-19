@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>Veiculo</title>
+</head>
+<body>
+
+<h3>Veiculo</h3>
+<h3><a href="/" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Lista Veiculos</a></h3>
+
+<div th:each="veiculo : ${veiculo}" class="container">
+    <div class="row">
+        <p><span th:text="${veiculo.marca}"></span></p>
+        <p><span th:text="${veiculo.modelo}"></span></p>
+        <p><span th:text="${veiculo.ano}"></span></p>
+        <p><span th:text="${veiculo.cor}"></span></p>
+    </div>
+</div>
+
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>

@@ -4,21 +4,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Veiculo App</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
 </head>
 <body>
-
-  <form method="post">
-    marca: <input type="text" value="" name="marca">
-    modelo: <input type="text" value="" name="modelo">
-    cor: <input type="text" value="" name="cor">
-    ano: <input type="text" value="" name="ano">
-    preco: <input type="text" value="" name="preco">
-    descricao: <input type="text" value="" name="descricao">
-    tipo: <input type="text" value="" name="tipo">
-
-    <button type="submit">Salvar</button>
-  </form>
-
-
+<h3>Cadastro de Veiculos</h3>
+<h4><a href="/" class="waves-effect-ligth btn"><i class="material-icons left">format_list_bulleted</i>Lista de Veiculos</a></h4>
+<form class="container" method="post">
+  <div class="row">
+    <div class="input-field col s2">
+      marca: <input type="text" value="" name="marca">
+    </div>
+    <div class="input-field col s2">
+      modelo: <input type="text" value="" name="modelo">
+    </div>
+    <div class="input-field col s3">
+      cor: <input type="text" value="" name="cor">
+    </div>
+    <div class="input-field col s3">
+      ano: <input type="text" value="" name="ano">
+    </div>
+    <div class="input-field col s3">
+      preco: <input type="text" value="" name="preco">
+    </div>
+    <div class="input-field col s3">
+      descricao: <input type="text" value="" name="descricao">
+    </div>
+    <div class="input-field col s3">
+      tipo: <input type="text" value="" name="tipo">
+    </div>
+  </div>
+  <button class="waves-effect waves-light btn" type="submit">Salvar</button>
+</form>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 </html>
