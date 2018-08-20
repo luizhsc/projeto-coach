@@ -10,17 +10,45 @@
     <title>Veiculo</title>
 </head>
 <body>
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a class="brand-logo">Veiculo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/">Lista de Veiculos</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<br>
 
-<h3>Veiculo</h3>
-<h3><a href="/" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Lista Veiculos</a></h3>
 
-<div th:each="veiculo : ${veiculo}" class="container">
-    <div class="row">
-        <p><span th:text="${veiculo.marca}"></span></p>
-        <p><span th:text="${veiculo.modelo}"></span></p>
-        <p><span th:text="${veiculo.ano}"></span></p>
-        <p><span th:text="${veiculo.cor}"></span></p>
-    </div>
+
+<div>
+    <table class="container">
+        <thead>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Ano</th>
+            <th>Cor</th>
+            <th>Preco</th>
+            <th>Descricao</th>
+            <th>Tipo</th>
+        </thead>
+        <tbody>
+            <tr th:each="veiculo : ${veiculo}">
+                <td><span th:text="${veiculo.marca}"></span></td>
+                <td><span th:text="${veiculo.modelo}"></span></td>
+                <td><span th:text="${veiculo.ano}"></span></td>
+                <td><span th:text="${veiculo.cor}"></span></td>
+                <td><span th:text="${veiculo.preco}"></span></td>
+                <td><span th:text="${veiculo.descricao}"></span></td>
+                <td><span th:text="${veiculo.tipo}"></span></td>
+                <td><a class="btn waves-effect waves-light" th:href="${(#mvc.url('VC#deletaVeiculo').arg(0, veiculo.id)).build()}"><i class="material-icons">delete</i></a></td>
+                <td><a class="btn waves-effect waves-light" th:href="${(#mvc.url('VC#editarVeiculo').arg(0, veiculo.id)).build()}"><i class="material-icons">edit</i></a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

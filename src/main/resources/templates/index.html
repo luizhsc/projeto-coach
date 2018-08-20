@@ -11,9 +11,17 @@
 </head>
 <body>
 
-<h3>Lista de Veiculos</h3>
-<h3><a href="/cadastrar" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Cadastrar Veiculo</a></h3>
-
+<header>
+  <nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo">Lista de Veiculos</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/cadastrar">Cadastrar Veiculo</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<br>
 <table class="container">
   <thead>
   <tr>
@@ -31,7 +39,6 @@
     <td><span th:text="${veiculo.cor}"></span></td>
   </tr>
   </tbody>
-
 </table>
 
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
