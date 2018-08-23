@@ -10,9 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VeiculoRepository extends JpaRepository<Veiculo, String> {
 
-
-
-
+    Veiculo findById(Long id);
 }
 
 
