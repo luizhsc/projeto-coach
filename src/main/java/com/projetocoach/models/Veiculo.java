@@ -11,12 +11,9 @@ import javax.persistence.Table;
 @Table(name="veiculo")
 public class Veiculo implements Serializable {
 
-    public static final Long serialVersionUID = 1L;
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String marca;
     private String modelo;
     private String cor;
@@ -33,11 +30,11 @@ public class Veiculo implements Serializable {
         this.tipo = tipo;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -88,6 +85,4 @@ public class Veiculo implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
-
 }
