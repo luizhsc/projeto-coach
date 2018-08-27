@@ -34,21 +34,20 @@ public class VeiculoResource {
         return veiculoRepository.save(veiculo);
     }
 
-
     @PutMapping("/{id}")
     public Veiculo atualizaVeiculo(@PathVariable(value = "id") Long id,
-                           @Valid @RequestBody Veiculo veiculoUpdate) {
+                           @Valid @RequestBody Veiculo detalheVeiculo) {
 
         Veiculo veiculo = veiculoRepository.findById(id);
 
-        veiculo.setMarca(veiculoUpdate.getMarca());
-        veiculo.setModelo(veiculoUpdate.getModelo());
-        veiculo.setAno(veiculoUpdate.getAno());
-        veiculo.setCor(veiculoUpdate.getCor());
-        veiculo.setDescricao(veiculoUpdate.getDescricao());
-        veiculo.setTipo(veiculoUpdate.getTipo());
+        veiculo.setMarca(detalheVeiculo.getMarca());
+        veiculo.setModelo(detalheVeiculo.getModelo());
+        veiculo.setAno(detalheVeiculo.getAno());
+        veiculo.setCor(detalheVeiculo.getCor());
+        veiculo.setDescricao(detalheVeiculo.getDescricao());
+        veiculo.setTipo(detalheVeiculo.getTipo());
 
-        Veiculo atualizaVeiculo = veiculoRepository.save(veiculoUpdate);
+        Veiculo atualizaVeiculo = veiculoRepository.save(veiculo);
 
         return atualizaVeiculo;
     }
