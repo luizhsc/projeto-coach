@@ -1,6 +1,7 @@
-package com.projetocoach.models;
+package com.projetocoach.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -84,5 +85,29 @@ public class Veiculo implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Veiculo veiculo = (Veiculo) o;
+        return Objects.equals(id, veiculo.id) &&
+            Objects.equals(marca, veiculo.marca) &&
+            Objects.equals(modelo, veiculo.modelo) &&
+            Objects.equals(cor, veiculo.cor) &&
+            Objects.equals(ano, veiculo.ano) &&
+            Objects.equals(preco, veiculo.preco) &&
+            Objects.equals(descricao, veiculo.descricao) &&
+            Objects.equals(tipo, veiculo.tipo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, marca, modelo, cor, ano, preco, descricao, tipo);
     }
 }

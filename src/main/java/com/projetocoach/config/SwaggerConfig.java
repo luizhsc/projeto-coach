@@ -1,4 +1,4 @@
-package com.projetocoach;
+package com.projetocoach.config;
 
 import org.springframework.context.annotation.Configuration;
 
