@@ -12,15 +12,14 @@ public class VeiculoServiceImpl implements VeiculoService {
 
     private static List<Veiculo> veiculos;
 
-
     public List<Veiculo> findAllVeiculos() {
         return veiculos;
     }
 
     public Veiculo findById(long id) {
-        for (Veiculo user : veiculos) {
-            if (user.getId() == id) {
-                return user;
+        for (Veiculo veiculo : veiculos) {
+            if (veiculo.getId() == id) {
+                return veiculo;
             }
         }
         return null;
@@ -28,36 +27,30 @@ public class VeiculoServiceImpl implements VeiculoService {
 
     public Veiculo findByModelo(String name) {
         for (Veiculo veiculo : veiculos) {
-            if (veiculo.getModelo()
-                       .equalsIgnoreCase(name)) {
+            if (veiculo.getModelo().equalsIgnoreCase(name)) {
                 return veiculo;
             }
         }
         return null;
     }
 
-
-    public void saveVeiculo(Veiculo user) {
-        user.setId(counter.incrementAndGet());
-        veiculos.add(user);
+    public void saveVeiculo(Veiculo veiculo) {
+        veiculo.setId(counter.incrementAndGet());
+        veiculos.add(veiculo);
     }
 
-    public void updateVeiculo(Veiculo user) {
-        int index = veiculos.indexOf(user);
-        veiculos.set(index, user);
+    public void updateVeiculo(Veiculo veiculo) {
+        int index = veiculos.indexOf(veiculo);
+        veiculos.set(index, veiculo);
     }
 
     public void deleteVeiculoById(long id) {
         for (Iterator<Veiculo> iterator = veiculos.iterator(); iterator.hasNext(); ) {
-            Veiculo user = iterator.next();
-            if (user.getId() == id) {
+            Veiculo veiculo = iterator.next();
+            if (veiculo.getId() == id) {
                 iterator.remove();
             }
         }
-    }
-
-    public void deleteAllVeiculos() {
-        veiculos.clear();
     }
 
     @Override
