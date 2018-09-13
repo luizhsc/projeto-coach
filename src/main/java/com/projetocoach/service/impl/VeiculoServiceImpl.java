@@ -1,60 +1,48 @@
 package com.projetocoach.service.impl;
 
-import com.projetocoach.model.Veiculo;
+import com.projetocoach.repository.VeiculoRepository;
 import com.projetocoach.service.VeiculoService;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
+import com.projetocoach.service.dto.CarDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public class VeiculoServiceImpl implements VeiculoService {
 
-    private static final AtomicLong counter = new AtomicLong();
 
-    private static List<Veiculo> veiculos;
+    private final VeiculoRepository repository;
 
-    public List<Veiculo> findAllVeiculos() {
-        return veiculos;
-    }
-
-    public Veiculo findById(long id) {
-        for (Veiculo veiculo : veiculos) {
-            if (veiculo.getId() == id) {
-                return veiculo;
-            }
-        }
-        return null;
-    }
-
-    public Veiculo findByModelo(String name) {
-        for (Veiculo veiculo : veiculos) {
-            if (veiculo.getModelo().equalsIgnoreCase(name)) {
-                return veiculo;
-            }
-        }
-        return null;
-    }
-
-    public void saveVeiculo(Veiculo veiculo) {
-        veiculo.setId(counter.incrementAndGet());
-        veiculos.add(veiculo);
-    }
-
-    public void updateVeiculo(Veiculo veiculo) {
-        int index = veiculos.indexOf(veiculo);
-        veiculos.set(index, veiculo);
-    }
-
-    public void deleteVeiculoById(long id) {
-        for (Iterator<Veiculo> iterator = veiculos.iterator(); iterator.hasNext(); ) {
-            Veiculo veiculo = iterator.next();
-            if (veiculo.getId() == id) {
-                iterator.remove();
-            }
-        }
+    @Autowired
+    public VeiculoServiceImpl(VeiculoRepository repository) {
+        this.repository = repository;
     }
 
     @Override
-    public boolean isVeiculoExist(Veiculo veiculo) {
-        return findByModelo(veiculo.getModelo()) != null;
+    public Page<CarDTO> findAllVeiculos(Pageable pageable) {
+        //TODO: use mapper
+        return repository.findAll(pageable);
+    }
+
+    @Override
+    public CarDTO findById(Long id) {
+        //TODO: create specific exception / user mapper
+        return repository.findById(id).orElseThrow(RuntimeException::new);
+    }
+
+    @Override
+    public CarDTO save(CarDTO car) {
+        //TODO: use mapper
+        return repository.save(car);
+    }
+
+    @Override
+    public CarDTO update(CarDTO car) {
+        //TODO: use mapper
+        return repository.save(car);
+    }
+
+    @Override
+    public void delete(long id) {
+        repository.deleteById(id);
     }
 }

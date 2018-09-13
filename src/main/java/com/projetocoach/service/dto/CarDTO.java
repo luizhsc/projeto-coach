@@ -1,19 +1,7 @@
-package com.projetocoach.model;
+package com.projetocoach.service.dto;
 
-import java.io.Serializable;
-import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+public class CarDTO {
 
-@Entity
-public class Veiculo implements Serializable {
-
-    private static final long serialVersionUID = 8570749119800900099L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String marca;
@@ -29,14 +17,6 @@ public class Veiculo implements Serializable {
     private String descricao;
 
     private String tipo;
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
     public Long getId() {
         return id;
@@ -94,18 +74,17 @@ public class Veiculo implements Serializable {
         this.descricao = descricao;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Veiculo)) {
-            return false;
-        }
-        Veiculo veiculo = (Veiculo) o;
-        return Objects.equals(getId(), veiculo.getId());
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
-    public int hashCode() { return Objects.hash(getId()); }
+    public String toString() {
+        return "CarDTO{" + "id=" + id + ", marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", cor='" + cor + '\'' + ", ano='" + ano + '\'' + ", preco='"
+            + preco + '\'' + ", descricao='" + descricao + '\'' + ", tipo='" + tipo + '\'' + '}';
+    }
 }
