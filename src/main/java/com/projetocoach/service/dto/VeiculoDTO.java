@@ -1,6 +1,6 @@
 package com.projetocoach.service.dto;
 
-public class CarDTO {
+public class VeiculoDTO {
 
     private Long id;
 
@@ -84,7 +84,7 @@ public class CarDTO {
 
     @Override
     public String toString() {
-        return "CarDTO{" + "id=" + id + ", marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", cor='" + cor + '\'' + ", ano='" + ano + '\'' + ", preco='"
+        return "VeiculoDTO{" + "id=" + id + ", marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", cor='" + cor + '\'' + ", ano='" + ano + '\'' + ", preco='"
             + preco + '\'' + ", descricao='" + descricao + '\'' + ", tipo='" + tipo + '\'' + '}';
     }
 }

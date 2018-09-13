@@ -1,8 +1,10 @@
 package com.projetocoach.service.impl;
 
+import com.projetocoach.mapper.VeiculoMapper;
+import com.projetocoach.model.Veiculo;
 import com.projetocoach.repository.VeiculoRepository;
 import com.projetocoach.service.VeiculoService;
-import com.projetocoach.service.dto.CarDTO;
+import com.projetocoach.service.dto.VeiculoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,33 +14,35 @@ public class VeiculoServiceImpl implements VeiculoService {
 
     private final VeiculoRepository repository;
 
+    private final VeiculoMapper mapper;
+
     @Autowired
-    public VeiculoServiceImpl(VeiculoRepository repository) {
+    public VeiculoServiceImpl(VeiculoRepository repository, VeiculoMapper mapper) {
         this.repository = repository;
+        this.mapper = mapper;
     }
 
     @Override
-    public Page<CarDTO> findAllVeiculos(Pageable pageable) {
-        //TODO: use mapper
-        return repository.findAll(pageable);
+    public Page<VeiculoDTO> findAll(Pageable pageable) {
+        return (Page<VeiculoDTO>) mapper.toDto(repository.findAll());
     }
 
     @Override
-    public CarDTO findById(Long id) {
+    public VeiculoDTO findById(Long id) {
         //TODO: create specific exception / user mapper
-        return repository.findById(id).orElseThrow(RuntimeException::new);
+        return mapper.toDto(repository.findById(id).orElseThrow(RuntimeException::new));
     }
 
     @Override
-    public CarDTO save(CarDTO car) {
+    public VeiculoDTO save(VeiculoDTO veiculoDTO) {
         //TODO: use mapper
-        return repository.save(car);
+        return mapper.toDto(repository.save(veiculoDTO));
     }
 
     @Override
-    public CarDTO update(CarDTO car) {
+    public VeiculoDTO update(VeiculoDTO veiculoDTO) {
         //TODO: use mapper
-        return repository.save(car);
+        return repository.save(veiculoDTO);
     }
 
     @Override
