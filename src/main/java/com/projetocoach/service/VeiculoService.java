@@ -2,21 +2,20 @@ package com.projetocoach.service;
 
 
 import com.projetocoach.model.Veiculo;
+import com.projetocoach.service.dto.VeiculoDTO;
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface VeiculoService {
-    Veiculo findById(long id);
+    Page<VeiculoDTO> findAll(Pageable pageable);
 
-    Veiculo findByModelo(String modelo);
+    VeiculoDTO findById(Long id);
 
-    void saveVeiculo(Veiculo veiculo);
+    VeiculoDTO save(VeiculoDTO veiculoDTO);
 
-    void updateVeiculo(Veiculo veiculo);
+    VeiculoDTO update(VeiculoDTO veiculoDTO);
 
-    void deleteVeiculoById(long id);
-
-    List<Veiculo> findAllVeiculos();
-
-    public boolean isVeiculoExist(Veiculo veiculo);
+    void delete(long id);
 
 }

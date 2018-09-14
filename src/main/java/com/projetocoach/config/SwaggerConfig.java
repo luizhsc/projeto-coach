@@ -2,6 +2,7 @@ package com.projetocoach.config;
 
 import org.springframework.context.annotation.Configuration;
 
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import org.springframework.context.annotation.Bean;
 
@@ -23,11 +24,10 @@ public class SwaggerConfig {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-            .select()
-            .apis(RequestHandlerSelectors.basePackage("com.projetocoach"))
-            .paths(regex("/veiculo.*"))
-            .build()
-            .apiInfo(metaInfo());
+                   .select()
+                   .apis(RequestHandlerSelectors.any())
+                   .paths(PathSelectors.any())
+                   .build();
     }
 
     private ApiInfo metaInfo() {

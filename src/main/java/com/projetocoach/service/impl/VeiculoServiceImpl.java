@@ -1,60 +1,50 @@
 package com.projetocoach.service.impl;
 
-import com.projetocoach.model.Veiculo;
+import com.projetocoach.mapper.VeiculoMapper;
 import com.projetocoach.service.VeiculoService;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
+import com.projetocoach.service.dto.VeiculoDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public class VeiculoServiceImpl implements VeiculoService {
 
-    private static final AtomicLong counter = new AtomicLong();
+    private final VeiculoService veiculoService;
 
-    private static List<Veiculo> veiculos;
+    private final VeiculoMapper mapper;
 
-    public List<Veiculo> findAllVeiculos() {
-        return veiculos;
-    }
-
-    public Veiculo findById(long id) {
-        for (Veiculo veiculo : veiculos) {
-            if (veiculo.getId() == id) {
-                return veiculo;
-            }
-        }
-        return null;
-    }
-
-    public Veiculo findByModelo(String name) {
-        for (Veiculo veiculo : veiculos) {
-            if (veiculo.getModelo().equalsIgnoreCase(name)) {
-                return veiculo;
-            }
-        }
-        return null;
-    }
-
-    public void saveVeiculo(Veiculo veiculo) {
-        veiculo.setId(counter.incrementAndGet());
-        veiculos.add(veiculo);
-    }
-
-    public void updateVeiculo(Veiculo veiculo) {
-        int index = veiculos.indexOf(veiculo);
-        veiculos.set(index, veiculo);
-    }
-
-    public void deleteVeiculoById(long id) {
-        for (Iterator<Veiculo> iterator = veiculos.iterator(); iterator.hasNext(); ) {
-            Veiculo veiculo = iterator.next();
-            if (veiculo.getId() == id) {
-                iterator.remove();
-            }
-        }
+    @Autowired
+    public VeiculoServiceImpl(VeiculoService veiculoService, VeiculoMapper mapper) {
+        this.veiculoService = veiculoService;
+        this.mapper = mapper;
     }
 
     @Override
-    public boolean isVeiculoExist(Veiculo veiculo) {
-        return findByModelo(veiculo.getModelo()) != null;
+    public Page<VeiculoDTO> findAll(Pageable pageable) {
+        return veiculoService.findAll(pageable);
     }
+
+    @Override
+    public VeiculoDTO findById(Long id) {
+        //TODO: create specific exception / user mapper
+        return veiculoService.findById(id);
+    }
+
+    @Override
+    public VeiculoDTO save(VeiculoDTO veiculoDTO) {
+        //TODO: use mapper
+        return veiculoService.save(veiculoDTO);
+    }
+
+    @Override
+    public VeiculoDTO update(VeiculoDTO veiculoDTO) {
+        //TODO: use mapper
+        return veiculoService.save(veiculoDTO);
+    }
+
+    @Override
+    public void delete(long id) {
+        veiculoService.delete(id);
+    }
+
 }

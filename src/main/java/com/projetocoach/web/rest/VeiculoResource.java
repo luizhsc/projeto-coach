@@ -1,4 +1,4 @@
-package com.projetocoach.controller;
+package com.projetocoach.web.rest;
 
 import com.projetocoach.model.Veiculo;
 import com.projetocoach.repository.VeiculoRepository;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value="Veiculos API REST")
 @RestController
 @RequestMapping("veiculos")
-public class VeiculoController {
+public class VeiculoResource {
 
     private VeiculoRepository veiculoRepository;
 
     @Autowired
-    public VeiculoController(VeiculoRepository veiculoRepository) {
+    public VeiculoResource(VeiculoRepository veiculoRepository) {
         this.veiculoRepository = veiculoRepository;
     }
 
