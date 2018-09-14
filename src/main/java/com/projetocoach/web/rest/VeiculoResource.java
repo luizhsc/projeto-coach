@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(value="Veiculos API REST")
+@Api(value = "Veiculos API REST")
 @RestController
 @RequestMapping("veiculos")
 public class VeiculoResource {
@@ -41,16 +41,16 @@ public class VeiculoResource {
         return ResponseEntity.ok(service.save(veiculoDTO));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Veiculo> updateVeiculo(@RequestBody VeiculoDTO veiculoDTO) {
-        VeiculoDTO veiculoUpdate = service.update(veiculoDTO);
-        return new ResponseEntity<Veiculo>((MultiValueMap<String, String>) veiculoUpdate, HttpStatus.OK);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity deleteVeiculo(@RequestBody VeiculoDTO veiculoDTO, Long id) {
-        return (ResponseEntity) ResponseEntity.status(HttpStatus.OK);
-    }
+//    @PutMapping("/{id}")
+//    public ResponseEntity<Veiculo> updateVeiculo(@RequestBody VeiculoDTO veiculoDTO) {
+//        VeiculoDTO veiculoUpdate = service.update(veiculoDTO);
+//        return new ResponseEntity<Veiculo>((MultiValueMap<String, String>) veiculoUpdate, HttpStatus.OK);
+//    }
+//
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity deleteVeiculo(@RequestBody VeiculoDTO veiculoDTO, Long id) {
+//        return (ResponseEntity) ResponseEntity.status(HttpStatus.OK);
+//    }
 
     //more methods here
     //use: http://mapstruct.org/ to convert DTO to Entity and Entity to DTO

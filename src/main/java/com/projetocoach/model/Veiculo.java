@@ -107,5 +107,7 @@ public class Veiculo implements Serializable {
     }
 
     @Override
-    public int hashCode() { return Objects.hash(getId()); }
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 }

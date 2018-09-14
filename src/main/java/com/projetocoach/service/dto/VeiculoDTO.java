@@ -84,7 +84,8 @@ public class VeiculoDTO {
 
     @Override
     public String toString() {
-        return "VeiculoDTO{" + "id=" + id + ", marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", cor='" + cor + '\'' + ", ano='" + ano + '\'' + ", preco='"
-            + preco + '\'' + ", descricao='" + descricao + '\'' + ", tipo='" + tipo + '\'' + '}';
+        return "VeiculoDTO{" + "id=" + id + ", marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", cor='" + cor + '\'' + ", ano='"
+                   + ano + '\'' + ", preco='"
+                   + preco + '\'' + ", descricao='" + descricao + '\'' + ", tipo='" + tipo + '\'' + '}';
     }
 }

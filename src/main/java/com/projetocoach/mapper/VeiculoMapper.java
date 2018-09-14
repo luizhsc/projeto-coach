@@ -5,5 +5,6 @@ import com.projetocoach.service.dto.VeiculoDTO;
 import org.mapstruct.Mapper;
 
 @Mapper
-public interface VeiculoMapper extends EntityMapper <VeiculoDTO, Veiculo> {
+public interface VeiculoMapper extends EntityMapper<VeiculoDTO, Veiculo> {
+
 }
