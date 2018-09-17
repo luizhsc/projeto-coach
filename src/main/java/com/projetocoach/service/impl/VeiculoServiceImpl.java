@@ -29,23 +29,21 @@ public class VeiculoServiceImpl implements VeiculoService {
 
     @Override
     public Optional<VeiculoDTO> findById(Long id) {
-        //TODO: create specific exception / user mapper
         return veiculoRepository.findById(id).map(mapper::toDto);
     }
 
-    public Veiculo save(Veiculo veiculo) {
-        return veiculoRepository.save(veiculo);
+    @Override
+    public void save(Veiculo veiculo) {
+        veiculoRepository.save(veiculo);
     }
 
     @Override
-    public Veiculo update(Veiculo veiculo) {
-        //TODO: use mapper
-        return veiculoRepository.save(veiculo);
+    public void update(Veiculo veiculo) {
+        veiculoRepository.save(veiculo);
     }
 
-    @Override
-    public void delete(Long id) {
-        return veiculoRepository.deleteById(id);
+    public void delete(Veiculo veiculo) {
+        veiculoRepository.delete(veiculo);
     }
 
 }
