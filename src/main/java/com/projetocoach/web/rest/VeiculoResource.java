@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(value="Veiculos API REST")
+@Api(value = "Veiculos API REST")
 @RestController
 @RequestMapping("veiculos")
 public class VeiculoResource {

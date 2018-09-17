@@ -1,6 +1,7 @@
 package com.projetocoach.service.dto;
 
 public class VeiculoDTO {
+
     private Long id;
 
     private String marca;
