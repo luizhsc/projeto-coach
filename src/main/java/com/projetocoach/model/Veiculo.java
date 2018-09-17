@@ -6,21 +6,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="veiculo")
 public class Veiculo implements Serializable {
+
+    private static final long serialVersionUID = 8570749119800900099L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String marca;
+
     private String modelo;
+
     private String cor;
+
     private String ano;
+
     private String preco;
+
     private String descricao;
+
     private String tipo;
 
     public String getTipo() {
@@ -92,22 +99,15 @@ public class Veiculo implements Serializable {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(o instanceof Veiculo)) {
             return false;
         }
         Veiculo veiculo = (Veiculo) o;
-        return Objects.equals(id, veiculo.id) &&
-            Objects.equals(marca, veiculo.marca) &&
-            Objects.equals(modelo, veiculo.modelo) &&
-            Objects.equals(cor, veiculo.cor) &&
-            Objects.equals(ano, veiculo.ano) &&
-            Objects.equals(preco, veiculo.preco) &&
-            Objects.equals(descricao, veiculo.descricao) &&
-            Objects.equals(tipo, veiculo.tipo);
+        return Objects.equals(getId(), veiculo.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, marca, modelo, cor, ano, preco, descricao, tipo);
+        return Objects.hash(getId());
     }
 }

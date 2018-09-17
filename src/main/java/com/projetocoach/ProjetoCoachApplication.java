@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration
+@ComponentScan("application")
 public class ProjetoCoachApplication {
 
     public static void main(String[] args) {
