@@ -1,6 +1,5 @@
 package com.projetocoach.service;
 
-import com.projetocoach.model.Veiculo;
 import com.projetocoach.service.dto.VeiculoDTO;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -12,9 +11,9 @@ public interface VeiculoService {
 
     Optional<VeiculoDTO> findById(Long id);
 
-    void save(Veiculo veiculo);
+    void save(VeiculoDTO veiculoDTO);
 
-    void update(Veiculo veiculo);
+    void update(VeiculoDTO veiculoDTO);
 
-    void delete(Veiculo veiculo);
+    void delete(VeiculoDTO veiculoDTO);
 }

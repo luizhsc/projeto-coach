@@ -33,17 +33,17 @@ public class VeiculoServiceImpl implements VeiculoService {
     }
 
     @Override
-    public void save(Veiculo veiculo) {
-        mapper.toDto(veiculoRepository.save(veiculo));
+    public void save(VeiculoDTO veiculoDTO) {
+        mapper.toDto(veiculoRepository.save(mapper.toEntity(veiculoDTO)));
     }
 
     @Override
-    public void update(Veiculo veiculo) {
-        mapper.toDto(veiculoRepository.save(veiculo));
+    public void update(VeiculoDTO veiculoDTO) {
+        mapper.toDto(veiculoRepository.save(mapper.toEntity(veiculoDTO)));
     }
 
-    public void delete(Veiculo veiculo) {
-        veiculoRepository.delete(veiculo);
+    public void delete(VeiculoDTO veiculoDTO) {
+        veiculoRepository.delete(mapper.toEntity(veiculoDTO));
     }
 
 }

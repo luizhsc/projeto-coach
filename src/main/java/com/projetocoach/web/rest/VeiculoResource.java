@@ -3,6 +3,8 @@ package com.projetocoach.web.rest;
 import com.projetocoach.model.Veiculo;
 import com.projetocoach.repository.VeiculoRepository;
 import io.swagger.annotations.Api;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +32,13 @@ public class VeiculoResource {
     }
 
     @GetMapping
-    public List<Veiculo> getAllVeiculos() {
-        return veiculoRepository.findAll();
+    public ResponseEntity<List<Veiculo>>  getAllVeiculos() {
+        return ResponseEntity.ok(veiculoRepository.findAll());
     }
 
     @PostMapping
-    public Veiculo createVeiculo(@Valid @RequestBody Veiculo veiculo) {
-        return veiculoRepository.save(veiculo);
+    public ResponseEntity<Veiculo> createVeiculo(@Valid @RequestBody Veiculo veiculo) throws URISyntaxException {
+        return ResponseEntity.created(new URI("/veiculos/" + veiculoRepository.save(veiculo))).build();
     }
 
     @PutMapping("/{id}")
@@ -48,7 +50,7 @@ public class VeiculoResource {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteVeiculo(@PathVariable("id") Long id) {
         veiculoRepository.deleteById(id);
-        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
 
