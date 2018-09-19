@@ -11,9 +11,11 @@ public interface VeiculoService {
 
     Optional<VeiculoDTO> findById(Long id);
 
-    void save(VeiculoDTO veiculoDTO);
+    VeiculoDTO save(VeiculoDTO veiculoDTO);
 
-    void update(VeiculoDTO veiculoDTO);
+    VeiculoDTO update(VeiculoDTO veiculoDTO);
 
-    void delete(VeiculoDTO veiculoDTO);
+    void deleteById(Long id);
+
+
 }

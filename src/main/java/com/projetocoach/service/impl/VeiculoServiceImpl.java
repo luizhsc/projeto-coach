@@ -1,7 +1,6 @@
 package com.projetocoach.service.impl;
 
 import com.projetocoach.mapper.VeiculoMapper;
-import com.projetocoach.model.Veiculo;
 import com.projetocoach.repository.VeiculoRepository;
 import com.projetocoach.service.VeiculoService;
 import com.projetocoach.service.dto.VeiculoDTO;
@@ -33,17 +32,17 @@ public class VeiculoServiceImpl implements VeiculoService {
     }
 
     @Override
-    public void save(VeiculoDTO veiculoDTO) {
-        mapper.toDto(veiculoRepository.save(mapper.toEntity(veiculoDTO)));
+    public VeiculoDTO save(VeiculoDTO veiculoDTO) {
+        return mapper.toDto(veiculoRepository.save(mapper.toEntity(veiculoDTO)));
     }
 
     @Override
-    public void update(VeiculoDTO veiculoDTO) {
-        mapper.toDto(veiculoRepository.save(mapper.toEntity(veiculoDTO)));
+    public VeiculoDTO update(VeiculoDTO veiculoDTO) {
+        return mapper.toDto(veiculoRepository.save(mapper.toEntity(veiculoDTO)));
     }
 
-    public void delete(VeiculoDTO veiculoDTO) {
-        veiculoRepository.delete(mapper.toEntity(veiculoDTO));
+    public void deleteById(Long id) {
+        veiculoRepository.deleteById(id);
     }
 
 }
