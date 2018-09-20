@@ -1,10 +1,10 @@
 package com.projetocoach.service.impl;
 
+import com.projetocoach.exception.VeiculoException;
 import com.projetocoach.mapper.VeiculoMapper;
 import com.projetocoach.repository.VeiculoRepository;
 import com.projetocoach.service.VeiculoService;
 import com.projetocoach.service.dto.VeiculoDTO;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,14 +22,10 @@ public class VeiculoServiceImpl implements VeiculoService {
     }
 
     @Override
-    public Page<VeiculoDTO> findAll(Pageable pageable) {
-        return veiculoRepository.findAll(pageable).map(mapper::toDto);
-    }
+    public Page<VeiculoDTO> findAll(Pageable pageable) { return veiculoRepository.findAll(pageable).map(mapper::toDto); }
 
     @Override
-    public Optional<VeiculoDTO> findById(Long id) {
-        return veiculoRepository.findById(id).map(mapper::toDto);
-    }
+    public VeiculoDTO findById(Long id) { return mapper.toDto(veiculoRepository.findById(id).orElseThrow(VeiculoException::new)); }
 
     @Override
     public VeiculoDTO save(VeiculoDTO veiculoDTO) {
@@ -44,5 +40,4 @@ public class VeiculoServiceImpl implements VeiculoService {
     public void deleteById(Long id) {
         veiculoRepository.deleteById(id);
     }
-
 }
