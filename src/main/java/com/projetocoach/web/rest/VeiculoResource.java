@@ -1,13 +1,14 @@
 package com.projetocoach.web.rest;
 
-import com.projetocoach.model.Veiculo;
-import com.projetocoach.repository.VeiculoRepository;
+import com.projetocoach.service.VeiculoService;
+import com.projetocoach.service.dto.VeiculoDTO;
 import io.swagger.annotations.Api;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,34 +25,37 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("veiculos")
 public class VeiculoResource {
 
-    private VeiculoRepository veiculoRepository;
+    private final VeiculoService service;
 
     @Autowired
-    public VeiculoResource(VeiculoRepository veiculoRepository) {
-        this.veiculoRepository = veiculoRepository;
+    public VeiculoResource(VeiculoService service) {
+        this.service = service;
     }
 
     @GetMapping
-    public ResponseEntity<List<Veiculo>>  getAllVeiculos() {
-        return ResponseEntity.ok(veiculoRepository.findAll());
+    public ResponseEntity<Page<VeiculoDTO>>  getAll(Pageable pageable) {
+        return ResponseEntity.ok(service.findAll(pageable));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<VeiculoDTO> getOne(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Veiculo> createVeiculo(@Valid @RequestBody Veiculo veiculo) throws URISyntaxException {
-        return ResponseEntity.created(new URI("/veiculos/" + veiculoRepository.save(veiculo))).build();
+    public ResponseEntity<VeiculoDTO> create(@Valid @RequestBody VeiculoDTO veiculo) throws URISyntaxException {
+        return ResponseEntity.created(new URI("/veiculos/" + service.save(veiculo))).build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Veiculo> updateVeiculo(@RequestBody Veiculo veiculo) {
-        veiculoRepository.save(veiculo);
-        return new ResponseEntity<Veiculo>(veiculo, HttpStatus.OK);
+    public ResponseEntity<VeiculoDTO> update(@RequestBody VeiculoDTO veiculo) {
+        service.save(veiculo);
+        return ResponseEntity.ok(veiculo);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteVeiculo(@PathVariable("id") Long id) {
-        veiculoRepository.deleteById(id);
+    public ResponseEntity delete(@PathVariable("id") Long id) {
+        service.deleteById(id);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
-
-
 }
