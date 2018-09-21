@@ -33,7 +33,7 @@ public class VeiculoResource {
     }
 
     @GetMapping
-    public ResponseEntity<Page<VeiculoDTO>>  getAll(Pageable pageable) {
+    public ResponseEntity<Page<VeiculoDTO>> getAll(Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable));
     }
 
@@ -43,14 +43,13 @@ public class VeiculoResource {
     }
 
     @PostMapping
-    public ResponseEntity<VeiculoDTO> create(@Valid @RequestBody VeiculoDTO veiculo) throws URISyntaxException {
-        return ResponseEntity.created(new URI("/veiculos/" + service.save(veiculo))).build();
+    public ResponseEntity<VeiculoDTO> create(@Valid @RequestBody VeiculoDTO veiculoDTO) throws URISyntaxException {
+        return ResponseEntity.created(new URI("/veiculos/" + service.save(veiculoDTO))).build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<VeiculoDTO> update(@RequestBody VeiculoDTO veiculo) {
-        service.save(veiculo);
-        return ResponseEntity.ok(veiculo);
+    public ResponseEntity<VeiculoDTO> update(@RequestBody VeiculoDTO veiculoDTO) {
+        return ResponseEntity.ok(service.update(veiculoDTO));
     }
 
     @DeleteMapping("/{id}")

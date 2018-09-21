@@ -8,7 +8,9 @@ import com.projetocoach.service.dto.VeiculoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+@Service
 public class VeiculoServiceImpl implements VeiculoService {
 
     private final VeiculoRepository veiculoRepository;
@@ -37,6 +39,7 @@ public class VeiculoServiceImpl implements VeiculoService {
         return mapper.toDto(veiculoRepository.save(mapper.toEntity(veiculoDTO)));
     }
 
+    @Override
     public void deleteById(Long id) {
         veiculoRepository.deleteById(id);
     }
