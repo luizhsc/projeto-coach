@@ -35,7 +35,36 @@ public class VeiculoServiceImplTest{
 
     @Test
     public void buscarVeiculoPorId(){
+        VeiculoService veiculoService = Mockito.mock(VeiculoService.class);
 
+        long id = 1;
+
+        VeiculoDTO veiculoDTO = new VeiculoDTO();
+
+        Mockito.when(veiculoService.findById(id)).thenReturn(veiculoDTO);
+
+        Assert.assertEquals(veiculoService.findById(id), veiculoDTO);
+    }
+
+    @Test
+    public void salvaVeiculo(){
+        VeiculoService veiculoService = Mockito.mock(VeiculoService.class);
+
+        VeiculoDTO veiculoDTO = new VeiculoDTO();
+
+        Mockito.when(veiculoService.save(veiculoDTO)).thenReturn(veiculoDTO);
+        Assert.assertEquals(veiculoService.save(veiculoDTO), veiculoDTO);
+    }
+
+
+    @Test
+    public void atualizaVeiculo(){
+        VeiculoService veiculoService = Mockito.mock(VeiculoService.class);
+
+        VeiculoDTO veiculoDTO = new VeiculoDTO();
+
+        Mockito.when(veiculoService.update(veiculoDTO)).thenReturn(veiculoDTO);
+        Assert.assertEquals(veiculoService.update(veiculoDTO), veiculoDTO);
     }
 
 }
