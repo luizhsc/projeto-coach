@@ -24,7 +24,6 @@ public class VeiculoResourceTest {
     @Mock
     private VeiculoService veiculoService;
 
-
     @Test
     public void buscarTodosVeiculos() {
         PageRequest pageable = new PageRequest(1, 1);
