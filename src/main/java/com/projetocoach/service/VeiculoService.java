@@ -1,18 +1,18 @@
 package com.projetocoach.service;
 
-import com.projetocoach.service.dto.VeiculoDTO;
+import com.projetocoach.service.dto.VeiculoDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface VeiculoService {
 
-    Page<VeiculoDTO> findAll(Pageable pageable);
+    Page<VeiculoDto> findAll(Pageable pageable);
 
-    VeiculoDTO findById(Long id);
+    VeiculoDto findById(Long id);
 
-    VeiculoDTO save(VeiculoDTO veiculoDTO);
+    VeiculoDto save(VeiculoDto veiculoDto);
 
-    VeiculoDTO update(VeiculoDTO veiculoDTO);
+    VeiculoDto update(VeiculoDto veiculoDto);
 
     void deleteById(Long id);
 }
