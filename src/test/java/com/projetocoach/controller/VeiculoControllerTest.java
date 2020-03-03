@@ -1,7 +1,7 @@
-package com.projetocoach.web.rest;
+package com.projetocoach.controller;
 
 import com.projetocoach.service.VeiculoService;
-import com.projetocoach.service.dto.VeiculoDTO;
+import com.projetocoach.service.dto.VeiculoDto;
 import java.net.URISyntaxException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class VeiculoResourceTest {
 
     @InjectMocks
-    private VeiculoResource veiculoResource;
+    private VeiculoController veiculoResource;
 
     @Mock
     private VeiculoService veiculoService;
@@ -27,7 +27,7 @@ public class VeiculoResourceTest {
     @Test
     public void buscarTodosVeiculos() {
         PageRequest pageable = new PageRequest(1, 1);
-        ResponseEntity<Page<VeiculoDTO>> veiculoDTO = veiculoResource.getAll(pageable);
+        ResponseEntity<Page<VeiculoDto>> veiculoDto = veiculoResource.getAll(pageable);
         Mockito.verify(veiculoService).findAll(pageable);
     }
 
@@ -35,15 +35,15 @@ public class VeiculoResourceTest {
     public void buscarVeiculoPorId() {
         long id = 1;
 
-        ResponseEntity<VeiculoDTO> veiculoDTO = veiculoResource.getOne(id);
+        ResponseEntity<VeiculoDto> veiculoDto = veiculoResource.getOne(id);
         Mockito.verify(veiculoService).findById(id);
     }
 
     @Test
     public void salvarVeiculo() throws URISyntaxException {
-        VeiculoDTO veiculoDTO = new VeiculoDTO();
-        veiculoResource.create(veiculoDTO);
-        Mockito.verify(veiculoService).save(veiculoDTO);
+        VeiculoDto veiculoDto = new VeiculoDto();
+        veiculoResource.create(veiculoDto);
+        Mockito.verify(veiculoService).save(veiculoDto);
     }
 
     @Test
@@ -56,9 +56,9 @@ public class VeiculoResourceTest {
 
     @Test
     public void atualizarVeiculo() {
-        VeiculoDTO veiculoDTO = new VeiculoDTO();
-        veiculoResource.update(veiculoDTO);
-        Mockito.verify(veiculoService).update(veiculoDTO);
+        VeiculoDto veiculoDto = new VeiculoDto();
+        veiculoResource.update(veiculoDto);
+        Mockito.verify(veiculoService).update(veiculoDto);
     }
 
 }
