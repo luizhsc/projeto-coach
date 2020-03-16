@@ -1,17 +1,13 @@
 package com.projetocoach.controller;
 
 import com.projetocoach.service.VeiculoService;
-import com.projetocoach.service.dto.VeiculoDto;
+import com.projetocoach.dto.VeiculoDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.net.URISyntaxException;

@@ -1,6 +1,6 @@
 package com.projetocoach.controller;
 
-import com.projetocoach.service.dto.VeiculoDto;
+import com.projetocoach.dto.VeiculoDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;

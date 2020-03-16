@@ -1,7 +1,7 @@
 package com.projetocoach.controller;
 
+import com.projetocoach.dto.VeiculoDto;
 import com.projetocoach.service.VeiculoService;
-import com.projetocoach.service.dto.VeiculoDto;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

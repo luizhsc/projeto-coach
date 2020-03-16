@@ -1,13 +1,10 @@
-package com.projetocoach.service.dto;
+package com.projetocoach.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-@Component
-@Mapper
-public class VeiculoDto {
+@JsonIgnoreProperties(ignoreUnknown = true) @Component @Mapper public class VeiculoDto {
     private Long id;
     private String marca;
     private String modelo;

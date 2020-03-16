@@ -1,10 +1,10 @@
 package com.projetocoach.service.impl;
 
+import com.projetocoach.dto.VeiculoDto;
 import com.projetocoach.exception.VeiculoException;
 import com.projetocoach.mapper.VeiculoMapper;
 import com.projetocoach.repository.VeiculoRepository;
 import com.projetocoach.service.VeiculoService;
-import com.projetocoach.service.dto.VeiculoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
