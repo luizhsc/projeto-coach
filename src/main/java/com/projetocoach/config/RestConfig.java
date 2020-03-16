@@ -7,17 +7,14 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
-@Configuration
-public class RestConfig {
-    @Bean
-    public View jsonTemplate() {
+@Configuration public class RestConfig {
+    @Bean public View jsonTemplate() {
         MappingJackson2JsonView view = new MappingJackson2JsonView();
         view.setPrettyPrint(true);
         return view;
     }
 
-    @Bean
-    public ViewResolver viewResolver() {
+    @Bean public ViewResolver viewResolver() {
         return new BeanNameViewResolver();
     }
 }

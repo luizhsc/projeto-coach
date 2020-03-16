@@ -11,37 +11,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(value = "Veiculos API REST")
-@RestController
-@RequestMapping("veiculos")
+@Api(value = "Veiculos API REST") @RestController @RequestMapping("veiculos")
 public class VeiculoControllerImpl implements VeiculoController {
 
-    @Autowired
-    private VeiculoService service;
+    @Autowired private VeiculoService service;
 
-    @Override
-    public Page<VeiculoDto> getAll(Pageable pageable) {
+    @Override public Page<VeiculoDto> getAll(Pageable pageable) {
         return service.findAll(pageable);
     }
 
-    @Override
-    public VeiculoDto getById(Long id) {
+    @Override public VeiculoDto getById(Long id) {
         return service.findById(id);
     }
 
-    @Override
-    public VeiculoDto create(VeiculoDto veiculoDto) {
+    @Override public VeiculoDto create(VeiculoDto veiculoDto) {
         return service.save(veiculoDto);
     }
 
-    @Override
-    public VeiculoDto update(@RequestBody VeiculoDto veiculoDto) {
+    @Override public VeiculoDto update(@RequestBody VeiculoDto veiculoDto) {
         return service.update(veiculoDto);
     }
 
-    @Override
-    public void delete(@PathVariable("id") Long id) {
+    @Override public void delete(@PathVariable("id") Long id) {
         service.deleteById(id);
-
     }
 }

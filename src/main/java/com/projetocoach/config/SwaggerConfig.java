@@ -13,31 +13,20 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 
-@Configuration
-@EnableSwagger2
-public class SwaggerConfig {
+@Configuration @EnableSwagger2 public class SwaggerConfig {
 
-    @Bean
-    public Docket productApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
-                .build();
+    @Bean public Docket productApi() {
+        return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any())
+            .paths(PathSelectors.any()).build();
     }
 
     private ApiInfo metaInfo() {
 
-        ApiInfo apiInfo = new ApiInfo(
-                "Veiculos API REST",
-                "API REST de cadastro de veiculos",
-                "1.0",
-                "Terms of Service",
-                new Contact("Luiz Cunha", "r",
-                        ""),
-                "Apache License Version 2.0",
-                "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>()
-        );
+        ApiInfo apiInfo =
+            new ApiInfo("Veiculos API REST", "API REST de cadastro de veiculos", "1.0",
+                "Terms of Service", new Contact("Luiz Cunha", "r", ""),
+                "Apache License Version 2.0", "https://www.apache.org/licesen.html",
+                new ArrayList<VendorExtension>());
 
         return apiInfo;
     }
